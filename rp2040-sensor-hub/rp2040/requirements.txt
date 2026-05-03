@@ -1,0 +1,12 @@
+# MicroPython dependencies for RP2040
+# These are included in standard MicroPython firmware
+
+# Built-in modules used:
+# - json (JSON serialization)
+# - machine (GPIO, I2C, UART)
+# - time (timekeeping)
+# - onewire (OneWire protocol)
+# - ds18x20 (DS18B20 driver)
+
+# Optional: micropython-umqtt for MQTT support
+# umqtt.simple

@@ -1,0 +1,28 @@
+[Unit]
+Description=RP2040 Sensor Reader Service
+After=network.target influxdb.service
+Wants=influxdb.service
+
+[Service]
+Type=simple
+User=root
+Group=dialout
+WorkingDirectory=/opt/sensor_hub
+ExecStart=/opt/sensor_hub/venv/bin/python3 /opt/sensor_hub/scripts/sensor_reader.py
+
+# Restart policy
+Restart=on-failure
+RestartSec=10
+StartLimitInterval=60s
+StartLimitBurst=3
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=sensor-reader
+
+# Environment
+Environment="PYTHONUNBUFFERED=1"
+
+[Install]
+WantedBy=multi-user.target
