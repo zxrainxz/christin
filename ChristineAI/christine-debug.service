@@ -1,0 +1,11 @@
+[Unit]
+Description=Christine's Brain
+
+[Service]
+Type=simple
+WorkingDirectory=/root/ChristineAI
+TimeoutStopSec=4
+ExecStart=/usr/local/bin/python3.11 -u -Wdefault -m debugpy --listen 0.0.0.0:5678 -m christine
+
+[Install]
+WantedBy=multi-user.target
